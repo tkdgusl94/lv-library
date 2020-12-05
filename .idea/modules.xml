@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1716529418/android-logger.iml" filepath="$PROJECT_DIR$/.idea/modules/1716529418/android-logger.iml" group="inbody/android-logger" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1346760379/app.iml" filepath="$PROJECT_DIR$/.idea/modules/-1346760379/app.iml" group="inbody/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-892204237/inbody.iml" filepath="$PROJECT_DIR$/.idea/modules/-892204237/inbody.iml" group="inbody" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1213578792/kotlin-extension-kit.iml" filepath="$PROJECT_DIR$/.idea/modules/-1213578792/kotlin-extension-kit.iml" group="inbody/kotlin-extension-kit" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lv-library.iml" filepath="$PROJECT_DIR$/.idea/modules/lv-library.iml" group="inbody/lv-library" />
+    </modules>
+  </component>
+</project>
