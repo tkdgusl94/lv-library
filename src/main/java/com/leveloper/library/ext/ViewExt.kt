@@ -3,6 +3,7 @@ package com.leveloper.library.ext
 import android.view.View
 import androidx.annotation.UiThread
 import androidx.databinding.BindingAdapter
+import androidx.databinding.BindingConversion
 
 fun View.isVisible(): Boolean = this.visibility == View.VISIBLE
 
@@ -64,10 +65,8 @@ fun View.setEnabled(enabled: Boolean) {
     isEnabled = enabled
 }
 
-@BindingAdapter(value = ["visible"])
-fun View.setVisible(visible: Boolean) {
-    visibility = if (visible) View.VISIBLE else View.GONE
-}
+@BindingConversion
+fun convertBooleanToVisibility(visible: Boolean) = if (visible) View.VISIBLE else View.GONE
 
 @BindingAdapter(value = ["backgroundResId"])
 fun View.setBackgroundResId(resId: Int) {
