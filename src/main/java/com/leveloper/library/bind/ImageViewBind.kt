@@ -1,6 +1,7 @@
-package com.leveloper.library.ext
+package com.leveloper.library.bind
 
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -23,6 +24,6 @@ fun ImageView.loadUrlCircle(url: String?) {
 }
 
 @BindingAdapter(value = ["drawableResId"])
-fun ImageView.setDrawableResId(resId: Int) {
+fun ImageView.setDrawableResId(@DrawableRes resId: Int) {
     setImageResource(resId)
 }
