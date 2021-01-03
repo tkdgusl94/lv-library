@@ -11,7 +11,7 @@ import com.leveloper.library.BR
 abstract class BaseMvvmFragment<T : ViewDataBinding, V : BaseViewModel<*>>(@LayoutRes layoutResId: Int)
     : BaseBindingFragment<T>(layoutResId) {
 
-    abstract fun getViewModel(): V
+    protected abstract fun getViewModel(): V
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -8,7 +8,7 @@ import androidx.databinding.ViewDataBinding
 abstract class BaseMvvmActivity<T : ViewDataBinding, V : BaseViewModel<*>>(@LayoutRes layoutResId: Int)
     : BaseBindingActivity<T>(layoutResId) {
 
-    abstract fun getViewModel(): V
+    protected abstract fun getViewModel(): V
 
     abstract fun prepareActivity()
 
