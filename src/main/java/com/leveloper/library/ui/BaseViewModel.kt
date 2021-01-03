@@ -1,25 +1,25 @@
 package com.leveloper.library.ui
 
 import android.app.Application
-import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import java.lang.ref.WeakReference
 
 abstract class BaseViewModel<N>(application: Application) : AndroidViewModel(application) {
 
     private var navigator: WeakReference<N>? = null
 
-    private val isLoading = ObservableField(false)
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
-    fun showLoading() {
-        this.isLoading.set(true)
+    init {
+        _isLoading.value = false
     }
 
-    fun hideLoading() {
-        this.isLoading.set(false)
+    fun setIsLoading(isLoading: Boolean) {
+        _isLoading.postValue(isLoading)
     }
-
-    fun getIsLoading() = isLoading
 
     fun setNavigator(navigator: N) {
         this.navigator = WeakReference(navigator)
