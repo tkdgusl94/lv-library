@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import java.lang.ref.WeakReference
 
-abstract class BaseViewModel<N>(application: Application) : AndroidViewModel(application) {
+open class BaseViewModel<N>(application: Application) : AndroidViewModel(application) {
 
     private var navigator: WeakReference<N>? = null
 
