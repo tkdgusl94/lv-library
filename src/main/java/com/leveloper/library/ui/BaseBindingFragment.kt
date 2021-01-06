@@ -17,7 +17,7 @@ abstract class BaseBindingFragment<B : ViewDataBinding>(@LayoutRes private val l
 
     private var activity: BaseBindingActivity<*>? = null
 
-    abstract fun prepareFragment()
+    protected abstract fun prepareFragment()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

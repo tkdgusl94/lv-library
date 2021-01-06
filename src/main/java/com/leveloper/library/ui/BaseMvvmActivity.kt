@@ -10,7 +10,7 @@ abstract class BaseMvvmActivity<T : ViewDataBinding, V : BaseViewModel<*>>(@Layo
 
     protected abstract fun getViewModel(): V
 
-    abstract fun prepareActivity()
+    protected abstract fun prepareActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
