@@ -55,5 +55,8 @@ dependencies {
     api deps.androidx.material
     api deps.androidx.appcompat
 
+    api deps.androidx.lifecycle_extensions
+    api deps.androidx.lifecycle_livedata_ktx
+
     api deps.library.glide
 }
