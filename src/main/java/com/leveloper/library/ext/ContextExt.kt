@@ -6,6 +6,7 @@ import android.net.Uri
 import android.util.TypedValue
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.annotation.DrawableRes
 import kotlin.math.roundToInt
 
 fun Context.hideKeyboard() {
@@ -39,3 +40,22 @@ fun Context.showToast(resourceId: Int, isLongToast: Boolean = false) {
     showToast(getString(resourceId), isLongToast)
 }
 
+/**
+ * Get String by name
+ */
+fun Context.getString(name: String?): String {
+    return try {
+        val id = resources.getIdentifier(name, "string", packageName)
+        resources.getString(id)
+    } catch (e: Exception) { "" }
+}
+
+/**
+ * Get DrawableRes by name
+ */
+@DrawableRes
+fun Context.getDrawableRes(name: String?): Int {
+    return try {
+        resources.getIdentifier(name, "drawable", packageName)
+    } catch (e: Exception) { 0 }
+}
