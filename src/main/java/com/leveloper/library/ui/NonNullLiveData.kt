@@ -1,6 +1,5 @@
 package com.leveloper.library.ui
 
-import androidx.databinding.InverseMethod
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
