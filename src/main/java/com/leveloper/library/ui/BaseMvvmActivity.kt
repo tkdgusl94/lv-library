@@ -3,14 +3,17 @@ package com.leveloper.library.ui
 import android.os.Bundle
 import com.leveloper.library.BR
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.leveloper.library.ext.observe
 import com.leveloper.library.ext.showToast
 
-abstract class BaseMvvmActivity<T : ViewDataBinding, V : BaseViewModel<*>>(@LayoutRes layoutResId: Int)
-    : BaseBindingActivity<T>(layoutResId) {
+abstract class BaseMvvmActivity<B : ViewDataBinding, V : BaseViewModel<*>>(@LayoutRes private val layoutResId: Int)
+    : AppCompatActivity(layoutResId) {
 
-    private lateinit var vm: V
+    protected lateinit var binding: B
+        private set
 
     protected abstract fun getViewModel(): V
 
@@ -19,30 +22,18 @@ abstract class BaseMvvmActivity<T : ViewDataBinding, V : BaseViewModel<*>>(@Layo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        vm = getViewModel()
+        binding = DataBindingUtil.setContentView(this, layoutResId)
+        binding.lifecycleOwner = this
+        binding.setVariable(BR.vm, getViewModel())
+        binding.executePendingBindings()
 
-        performDataBinding()
         prepareActivity()
         subscribeToLiveData()
     }
 
-    open fun subscribeToLiveData() {
-        observe(vm.toast) {
-            showToast(it)
-        }
+    open fun subscribeToLiveData() {}
 
-        observe(vm.toastRes) {
-            showToast(it)
-        }
-    }
-
-    private fun performDataBinding() {
-        binding.lifecycleOwner = this
-        binding.setVariable(BR.vm, vm)
-        binding.executePendingBindings()
-    }
-
-    protected fun binding(action: T.() -> Unit) {
+    protected fun binding(action: B.() -> Unit) {
         binding.run(action)
     }
 }

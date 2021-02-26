@@ -54,6 +54,5 @@ abstract class BaseRecyclerViewAdapter<D, VH : BaseViewHolder<ViewDataBinding, D
         } else {
             notifyDataSetChanged()
         }
-
     }
 }

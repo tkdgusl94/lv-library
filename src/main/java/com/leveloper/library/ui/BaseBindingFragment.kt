@@ -1,6 +1,5 @@
 package com.leveloper.library.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,17 +14,7 @@ abstract class BaseBindingFragment<B : ViewDataBinding>(@LayoutRes private val l
     protected lateinit var binding: B
         private set
 
-    private var activity: BaseBindingActivity<*>? = null
-
     protected abstract fun prepareFragment()
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is BaseBindingActivity<*>) {
-            activity = context
-            activity?.onFragmentAttached()
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,20 +30,5 @@ abstract class BaseBindingFragment<B : ViewDataBinding>(@LayoutRes private val l
         super.onViewCreated(view, savedInstanceState)
 
         prepareFragment()
-    }
-
-    override fun onDetach() {
-        if (context is BaseBindingActivity<*>) {
-            activity?.onFragmentDetached()
-            activity = null
-        }
-        super.onDetach()
-    }
-
-    fun getBaseActivity() = activity
-
-    interface Callback {
-        fun onFragmentAttached()
-        fun onFragmentDetached()
     }
 }

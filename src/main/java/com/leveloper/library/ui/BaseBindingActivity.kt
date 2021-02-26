@@ -7,17 +7,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
 abstract class BaseBindingActivity<B : ViewDataBinding>(@LayoutRes private val layoutResId: Int)
-    : AppCompatActivity(layoutResId), BaseBindingFragment.Callback {
+    : AppCompatActivity(layoutResId) {
 
     protected lateinit var binding: B
         private set
 
+    protected abstract fun prepareActivity()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutResId)
+
+        prepareActivity()
     }
-
-    override fun onFragmentAttached() {}
-
-    override fun onFragmentDetached() {}
 }
