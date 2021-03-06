@@ -1,6 +1,7 @@
 package com.leveloper.library.ext
 
 import android.graphics.Rect
+import android.os.SystemClock
 import android.view.View
 import androidx.annotation.UiThread
 
@@ -70,3 +71,20 @@ fun View?.contains(x: Int, y: Int): Boolean {
 inline fun <reified T: View> T.click(crossinline block: (T) -> Unit) = setOnClickListener { block(it as T) }
 
 inline fun <reified T: View> T.longClick(crossinline block: (T) -> Boolean) = setOnLongClickListener { block(it as T) }
+
+/**
+ * OnSingleClickListener
+ */
+inline fun <reified T: View> T.singleClick(crossinline block: (T) -> Unit) {
+    var lastClickTime = 0L
+
+    setOnClickListener { view ->
+        val elapsedTime = SystemClock.elapsedRealtime() - lastClickTime
+
+        if (elapsedTime < 500L) return@setOnClickListener
+
+        lastClickTime = SystemClock.elapsedRealtime()
+
+        view?.let { block(it as T) }
+    }
+}
