@@ -79,6 +79,8 @@ ext {
                     converter_gson            : "com.squareup.retrofit2:converter-gson:$versions.retrofit2",
 
                     koin_androidx_viewmodel   : "org.koin:koin-androidx-viewmodel:$versions.koin",
+                    koin_core                 : "org.koin:koin-core:$versions.koin",
+                    koin_android              : "org.koin:koin-android:$versions.koin",
 
                     gson                      : "com.google.code.gson:gson:$versions.gson",
                     rxbinding_kotlin          : "com.jakewharton.rxbinding2:rxbinding-kotlin:$versions.rxbinding_kotlin",
