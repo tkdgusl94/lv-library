@@ -9,7 +9,7 @@ import androidx.databinding.ViewDataBinding
 import com.leveloper.library.ext.observe
 import com.leveloper.library.ext.showToast
 
-abstract class BaseMvvmActivity<B : ViewDataBinding, V : BaseViewModel<*>>(@LayoutRes private val layoutResId: Int)
+abstract class BaseMvvmActivity<B : ViewDataBinding, V : BaseViewModel>(@LayoutRes private val layoutResId: Int)
     : AppCompatActivity(layoutResId) {
 
     protected lateinit var binding: B

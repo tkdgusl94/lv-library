@@ -10,7 +10,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.leveloper.library.BR
 
-abstract class BaseMvvmFragment<B : ViewDataBinding, V : BaseViewModel<*>>(@LayoutRes private val layoutResId: Int) : Fragment() {
+abstract class BaseMvvmFragment<B : ViewDataBinding, V : BaseViewModel>(@LayoutRes private val layoutResId: Int) : Fragment() {
 
     protected abstract fun getViewModel(): V
 
