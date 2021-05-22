@@ -18,3 +18,30 @@ sealed class Result<out R> {
         }
     }
 }
+
+fun <T> Result<T>.onSuccess(onSuccess: (T) -> Unit): Result<T> {
+    if (this is Result.Success) {
+        onSuccess(this.data)
+    }
+    return this
+}
+
+fun Result<*>.onError(onError: (Exception) -> Unit): Result<*> {
+    if (this is Result.Error) {
+        onError(exception)
+    }
+    return this
+}
+
+fun Result<*>.onLoading(onLoading: () -> Unit): Result<*> {
+    if (this is Result.Loading) {
+        onLoading()
+    }
+    return this
+}
+
+/**
+ * `true` if [Result] is of type [Result.Success] & holds non-null [Result.Success.data].
+ */
+val Result<*>.succeeded
+    get() = this is Result.Success && data != null
