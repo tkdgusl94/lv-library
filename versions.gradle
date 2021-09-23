@@ -21,7 +21,7 @@ ext {
                     material            : '1.2.0-alpha04',
                     appcompat           : '1.2.0',
                     constraint_layout   : '2.0.0-beta4',
-                    lifecycle_extensions: '2.2.0',
+                    lifecycle_extensions: '2.3.0',
                     core_ktx            : '1.3.2',
                     room                : '2.2.6'
             ],
@@ -64,7 +64,6 @@ ext {
                     appcompat              : "androidx.appcompat:appcompat:$versions.androidx.appcompat",
                     constraint_layout      : "androidx.constraintlayout:constraintlayout:$versions.androidx.constraint_layout",
 
-                    lifecycle_extensions   : "androidx.lifecycle:lifecycle-extensions:$versions.androidx.lifecycle_extensions",
                     lifecycle_viewmodel_ktx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.androidx.lifecycle_extensions",
                     lifecycle_livedata_ktx : "androidx.lifecycle:lifecycle-livedata-ktx:$versions.androidx.lifecycle_extensions",
 
